@@ -19,5 +19,9 @@
 }
 
 .tableData {
-  text-align: right;
+  margin: 0 0.5rem;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
