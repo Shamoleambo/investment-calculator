@@ -3,16 +3,21 @@ import { Form, Button } from 'react-bootstrap'
 import CardContainer from './CardContainer'
 import classes from './InvestmentForm.module.css'
 
-const InvestmentForm = () => {
+const InvestmentForm = ({ onCalculate }) => {
   const [savings, setSavings] = useState(0)
   const [yearInvestment, setYearInvestment] = useState(0)
   const [interest, setInterest] = useState(0)
   const [period, setPeriod] = useState(0)
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    onCalculate(+savings, +yearInvestment, +interest, +period)
+  }
+
   return (
     <CardContainer>
       <div className={classes.formContainer}>
-        <Form className='my-3'>
+        <Form className='my-3' onSubmit={handleSubmit}>
           <h1 style={{ textAlign: 'center' }}>What is your investment plan?</h1>
           <div className={classes['form-fields']}>
             <Form.Group className='p-3' controlId='initialValue'>
@@ -32,7 +37,7 @@ const InvestmentForm = () => {
               />
             </Form.Group>
             <Form.Group className='p-3' controlId='interest'>
-              <Form.Label>Interest per Year</Form.Label>
+              <Form.Label>Interest per Year (%)</Form.Label>
               <Form.Control
                 type='number'
                 value={interest}
