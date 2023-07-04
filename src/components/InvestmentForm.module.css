@@ -1,0 +1,15 @@
+.form-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.buttons {
+  margin: 1rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  width: 20%;
+  margin: 0.5rem;
+}
