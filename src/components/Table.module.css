@@ -1,0 +1,23 @@
+.table {
+  display: block;
+  width: 40%;
+}
+
+.tableHead {
+  display: block;
+  width: 100%;
+}
+
+.tableBody {
+  display: block;
+  width: 100%;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.tableData {
+  text-align: right;
+}
