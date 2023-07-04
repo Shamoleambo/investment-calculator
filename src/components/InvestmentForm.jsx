@@ -11,49 +11,51 @@ const InvestmentForm = () => {
 
   return (
     <CardContainer>
-      <Form className='my-3'>
-        <h1>What is your investment plan?</h1>
-        <div className={classes['form-fields']}>
-          <Form.Group className='p-3' controledId='initialValue'>
-            <Form.Label>Current Savings for Investment</Form.Label>
-            <Form.Control
-              type='number'
-              value={savings}
-              onChange={(event) => setSavings(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className='p-3' controledId='yearInvestment'>
-            <Form.Label>Yearly Investment</Form.Label>
-            <Form.Control
-              type='number'
-              value={yearInvestment}
-              onChange={(event) => setYearInvestment(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className='p-3'>
-            <Form.Label>Interest per Year</Form.Label>
-            <Form.Control
-              type='number'
-              value={interest}
-              onChange={(event) => setInterest(event.target.value)}
-            />
-          </Form.Group>
-          <Form.Group className='p-3'>
-            <Form.Label>Years</Form.Label>
-            <Form.Control
-              type='number'
-              value={period}
-              onChange={(event) => setPeriod(event.target.value)}
-            />
-          </Form.Group>
-        </div>
-        <div className={classes.buttons}>
-          <Button variant='secondary'>Reset</Button>
-          <Button type='submit' variant='primary'>
-            Calculate
-          </Button>
-        </div>
-      </Form>
+      <div className={classes.formContainer}>
+        <Form className='my-3'>
+          <h1 style={{ textAlign: 'center' }}>What is your investment plan?</h1>
+          <div className={classes['form-fields']}>
+            <Form.Group className='p-3' controlId='initialValue'>
+              <Form.Label>Current Savings for Investment</Form.Label>
+              <Form.Control
+                type='number'
+                value={savings}
+                onChange={(event) => setSavings(event.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='p-3' controlId='yearInvestment'>
+              <Form.Label>Yearly Investment</Form.Label>
+              <Form.Control
+                type='number'
+                value={yearInvestment}
+                onChange={(event) => setYearInvestment(event.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='p-3' controlId='interest'>
+              <Form.Label>Interest per Year</Form.Label>
+              <Form.Control
+                type='number'
+                value={interest}
+                onChange={(event) => setInterest(event.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className='p-3' controlId='years'>
+              <Form.Label>Years</Form.Label>
+              <Form.Control
+                type='number'
+                value={period}
+                onChange={(event) => setPeriod(event.target.value)}
+              />
+            </Form.Group>
+          </div>
+          <div className={classes.buttons}>
+            <Button variant='secondary'>Reset</Button>
+            <Button type='submit' variant='primary'>
+              Calculate
+            </Button>
+          </div>
+        </Form>
+      </div>
     </CardContainer>
   )
 }
