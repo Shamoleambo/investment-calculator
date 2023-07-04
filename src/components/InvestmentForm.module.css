@@ -1,3 +1,10 @@
+.formContainer {
+  padding: 1rem;
+  width: 60%;
+  background-color: lightgreen;
+  border-radius: 1rem;
+}
+
 .form-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
