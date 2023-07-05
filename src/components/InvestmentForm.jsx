@@ -16,6 +16,10 @@ const InvestmentForm = ({ calculateInvestment, resetTable }) => {
 
   const handleReset = () => {
     resetTable()
+    setSavings(0)
+    setYearInvestment(0)
+    setInterest(0)
+    setPeriod(0)
   }
 
   return (
