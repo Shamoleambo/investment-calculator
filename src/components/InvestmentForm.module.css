@@ -1,7 +1,8 @@
 .formContainer {
+  color: white;
   padding: 1rem;
   width: 60%;
-  background-color: lightgreen;
+  background-color: rgba(3, 159, 13, 0.8);
   border-radius: 1rem;
 }
 

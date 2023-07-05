@@ -65,7 +65,7 @@ const InvestmentForm = ({ calculateInvestment, resetTable }) => {
             <Button variant='secondary' onClick={handleReset}>
               Reset
             </Button>
-            <Button type='submit' variant='primary'>
+            <Button type='submit' variant='warning'>
               Calculate
             </Button>
           </div>
