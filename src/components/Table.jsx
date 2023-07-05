@@ -1,7 +1,12 @@
 import CardContainer from './CardContainer'
 import classes from './Table.module.css'
 
-const Table = () => {
+const Table = ({ investmentOverTime }) => {
+  const USDollar = Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD'
+  })
+
   return (
     <CardContainer>
       <table className={classes.table}>
@@ -15,13 +20,25 @@ const Table = () => {
           </tr>
         </thead>
         <tbody className={classes.tableBody}>
-          <tr className={classes.tableRow}>
-            <td className={classes.tableData}>1</td>
-            <td className={classes.tableData}>11700</td>
-            <td className={classes.tableData}>500</td>
-            <td className={classes.tableData}>500</td>
-            <td className={classes.tableData}>11200</td>
-          </tr>
+          {investmentOverTime.map((investment) => {
+            return (
+              <tr key={investment.year} className={classes.tableRow}>
+                <td className={classes.tableData}>{investment.year}</td>
+                <td className={classes.tableData}>
+                  {USDollar.format(investment.totalSavings)}
+                </td>
+                <td className={classes.tableData}>
+                  {USDollar.format(investment.interest)}
+                </td>
+                <td className={classes.tableData}>
+                  {USDollar.format(investment.totalInterest)}
+                </td>
+                <td className={classes.tableData}>
+                  {USDollar.format(investment.investedCapital)}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </CardContainer>
