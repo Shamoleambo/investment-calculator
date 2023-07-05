@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap'
 import CardContainer from './CardContainer'
 import classes from './InvestmentForm.module.css'
 
-const InvestmentForm = ({ onCalculate }) => {
+const InvestmentForm = ({ calculateInvestment, resetTable }) => {
   const [savings, setSavings] = useState(0)
   const [yearInvestment, setYearInvestment] = useState(0)
   const [interest, setInterest] = useState(0)
@@ -11,7 +11,11 @@ const InvestmentForm = ({ onCalculate }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    onCalculate(+savings, +yearInvestment, +interest, +period)
+    calculateInvestment(+savings, +yearInvestment, +interest, +period)
+  }
+
+  const handleReset = () => {
+    resetTable()
   }
 
   return (
@@ -54,7 +58,9 @@ const InvestmentForm = ({ onCalculate }) => {
             </Form.Group>
           </div>
           <div className={classes.buttons}>
-            <Button variant='secondary'>Reset</Button>
+            <Button variant='secondary' onClick={handleReset}>
+              Reset
+            </Button>
             <Button type='submit' variant='primary'>
               Calculate
             </Button>

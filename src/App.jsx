@@ -7,8 +7,10 @@ import './App.css'
 
 function App() {
   const [investmentOverTime, setInvestmentOverTime] = useState([])
+  const [hasInvestmentData, setHasInvestmentData] = useState(false)
 
-  const calculateInvestment = (savings, yearSaving, interest, totalYears) => {
+  const onClaculateInvestment = (savings, yearSaving, interest, totalYears) => {
+    setHasInvestmentData(true)
     const totalInvestments = []
 
     const firstYearInvestment = {}
@@ -42,11 +44,16 @@ function App() {
     setInvestmentOverTime(totalInvestments)
   }
 
+  const onResetTable = () => setHasInvestmentData(false)
+
   return (
     <>
       <Title />
-      <InvestmentForm onCalculate={calculateInvestment} />
-      <Table investmentOverTime={investmentOverTime} />
+      <InvestmentForm
+        calculateInvestment={onClaculateInvestment}
+        resetTable={onResetTable}
+      />
+      {hasInvestmentData && <Table investmentOverTime={investmentOverTime} />}
     </>
   )
 }
